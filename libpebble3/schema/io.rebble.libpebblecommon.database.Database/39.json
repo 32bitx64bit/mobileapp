@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 39,
-    "identityHash": "0a6e94ddb7ad4e2c35e9f9b8b4eaaf29",
+    "identityHash": "e4ceeeab2a7214eb338550b7d2f79726",
     "entities": [
       {
         "tableName": "KnownWatchItem",
@@ -841,7 +841,7 @@
       },
       {
         "tableName": "CalendarEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `platformId` TEXT NOT NULL, `name` TEXT NOT NULL, `ownerName` TEXT NOT NULL, `ownerId` TEXT NOT NULL, `color` INTEGER NOT NULL, `enabled` INTEGER NOT NULL, `syncEvents` INTEGER NOT NULL DEFAULT 1)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `platformId` TEXT NOT NULL, `name` TEXT NOT NULL, `ownerName` TEXT NOT NULL, `ownerId` TEXT NOT NULL, `color` INTEGER NOT NULL, `enabled` INTEGER NOT NULL, `syncEvents` INTEGER NOT NULL DEFAULT 1, `visible` INTEGER NOT NULL DEFAULT 1)",
         "fields": [
           {
             "fieldPath": "id",
@@ -888,6 +888,13 @@
           {
             "fieldPath": "syncEvents",
             "columnName": "syncEvents",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "1"
+          },
+          {
+            "fieldPath": "visible",
+            "columnName": "visible",
             "affinity": "INTEGER",
             "notNull": true,
             "defaultValue": "1"
@@ -1845,7 +1852,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0a6e94ddb7ad4e2c35e9f9b8b4eaaf29')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e4ceeeab2a7214eb338550b7d2f79726')"
     ]
   }
 }
